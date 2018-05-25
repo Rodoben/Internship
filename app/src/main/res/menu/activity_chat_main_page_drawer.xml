@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/profile"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="Profile" />
+        <item
+            android:id="@+id/address"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="Manage Address" />
+        <item
+            android:id="@+id/payment"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="Payment Options" />
+        <item
+            android:id="@+id/settings"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="Settings" />
+        <item
+            android:id="@+id/camera"
+            android:icon="@drawable/ic_camera"
+            android:title="Camera" />
+    </group>
+
+
+
+</menu>

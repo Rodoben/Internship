@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "973171260556",
+    "firebase_url": "https://saarthifinal.firebaseio.com",
+    "project_id": "saarthifinal",
+    "storage_bucket": "saarthifinal.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:973171260556:android:38be039935bec0cf",
+        "android_client_info": {
+          "package_name": "com.example.ronaldbenjamin.saarthironald"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "973171260556-oingimhvve3b4fo80c500fpbibgcpmf6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.ronaldbenjamin.saarthironald",
+            "certificate_hash": "2238ab5241962c77dd422244e7b8aa1a2acbcec0"
+          }
+        },
+        {
+          "client_id": "973171260556-a2fqgr02mi91d8l7qpcb0d0lrbjlq7tg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBgFztJtdhA2jnl96VCFPOBPZX0dZ5mC5U"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "973171260556-a2fqgr02mi91d8l7qpcb0d0lrbjlq7tg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
