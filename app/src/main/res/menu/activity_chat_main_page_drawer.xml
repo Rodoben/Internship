@@ -24,6 +24,12 @@
             android:id="@+id/camera"
             android:icon="@drawable/ic_camera"
             android:title="Camera" />
+
+        <item
+            android:id="@+id/youtube"
+            android:icon="@drawable/ic_camera"
+            android:title="YouTube" />
+
     </group>
 
 

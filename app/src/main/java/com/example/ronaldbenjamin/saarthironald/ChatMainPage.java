@@ -162,7 +162,7 @@ public class ChatMainPage extends AppCompatActivity
 
 
         } else if (id == R.id.payment) {
-            startActivity(new Intent(getApplicationContext(),MainActivity.class));
+           replaceFragment(paymentFragment);
 
 
         } else if (id == R.id.settings) {
@@ -171,6 +171,10 @@ public class ChatMainPage extends AppCompatActivity
         }
         else if(id==R.id.camera){
             replaceFragment(cameraFragment);
+        }
+        else if (id==R.id.youtube){
+            startActivity(new Intent(getApplicationContext(),YoutubeActivity.class));
+
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
