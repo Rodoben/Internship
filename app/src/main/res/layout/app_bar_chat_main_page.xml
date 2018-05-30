@@ -28,13 +28,21 @@
         android:id="@+id/toolbar2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary"
+        android:background="#ffffff"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
 
-        app:layout_anchorGravity="top|center" />
+        app:layout_anchorGravity="top|center" >
+        <com.example.ronaldbenjamin.saarthironald.utils.CustomFont
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Toolbar Title"
+            android:layout_gravity="center"
+            style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
+            android:id="@+id/toolbar_title" />
+    </android.support.v7.widget.Toolbar>
 
-        <ImageButton
+        <ImageView
             android:id="@+id/imageButton30"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -46,9 +54,11 @@
             app:layout_anchorGravity="right|top"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:srcCompat="@drawable/ic_menu_camera" />
+            android:src="@mipmap/baseline_flight_takeoff_black"/>
 
-        <ImageButton
+
+
+        <ImageView
             android:id="@+id/imageButton33"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -62,7 +72,7 @@
             app:layout_anchorGravity="left|top"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:srcCompat="@drawable/ic_menu_camera" />
+            android:src="@mipmap/baseline_menu_black" />
     </android.support.constraint.ConstraintLayout>
 
 </android.support.design.widget.CoordinatorLayout>

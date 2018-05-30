@@ -7,12 +7,15 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.android.gms.auth.api.Auth;
@@ -39,6 +42,11 @@ public class SignUpFragment extends Fragment {
     FirebaseAuth mAuth;
     FirebaseAuth.AuthStateListener mAuthListner;
     private static final String TAG="MAIN_ACTIVITY";
+    private EditText inputEmail, inputPassword;
+    private Button btnSignUp;
+    private FirebaseAuth auth;
+
+
 
     private static final int RC_SIGN_IN=1;
     private GoogleApiClient mGoogleApiClient;
@@ -51,8 +59,6 @@ public class SignUpFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
        // le Sign in......
-
-
         mAuth=FirebaseAuth.getInstance();
 
 
@@ -63,6 +69,15 @@ public class SignUpFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_sign_up, container, false);
+        Button button=view.findViewById(R.id.sign_up_button1);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                emailpasswordsignup();
+            }
+        });
+
+
         mgooglebtn=view.findViewById(R.id.sigInButton);
         // Configure Google Sign In
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -82,6 +97,13 @@ public class SignUpFragment extends Fragment {
                 signIn();
             }
         });
+
+
+
+
+
+
+
 return view;
     }
 
@@ -138,14 +160,61 @@ return view;
     }
 
     private void updateUI(FirebaseUser user) {
+        }
 
+
+    public void emailpasswordsignup()
+    {
+        auth = FirebaseAuth.getInstance();
+        btnSignUp = (Button) getView().findViewById(R.id.sign_up_button1);
+        inputEmail = (EditText) getView().findViewById(R.id.email);
+        inputPassword = (EditText) getView().findViewById(R.id.password);
+        String email = inputEmail.getText().toString().trim();
+        String password = inputPassword.getText().toString().trim();
+        if (TextUtils.isEmpty(email)) {
+            Toast.makeText(getActivity(), "Enter email address!", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if (TextUtils.isEmpty(password)) {
+            Toast.makeText(getActivity(), "Enter password!", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if (password.length() < 6) {
+            Toast.makeText(getActivity(), "Password too short, enter minimum 6 characters!", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        auth.createUserWithEmailAndPassword(email, password)
+                .addOnCompleteListener(getActivity(), new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        Toast.makeText(getActivity(), "createUserWithEmail:onComplete:" + task.isSuccessful(), Toast.LENGTH_SHORT).show();
+
+                        // If sign in fails, display a message to the user. If sign in succeeds
+                        // the auth state listener will be notified and logic to handle the
+                        // signed in user can be handled in the listener.
+                        if (!task.isSuccessful()) {
+                            Toast.makeText(getActivity(), "Registration failed." + task.getException(),
+                                    Toast.LENGTH_SHORT).show();
+                        } else {
+                            Toast.makeText(getActivity(), "Registration Succeeded!!", Toast.LENGTH_LONG).show();
+                            Fragment f=new SignInFragment();
+                            FragmentManager fm =getFragmentManager();
+                            FragmentTransaction ft=fm.beginTransaction();
+                            ft.replace(R.id.MainFrame,f);
+                            ft.commit();
+                        }
+                    }
+                });
+
+    }
     }
 
 
 
 
 
-    }
 
 
 
